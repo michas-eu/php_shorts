@@ -5,6 +5,8 @@
 $x = @$_POST['json'];
 if ($x):
 	$j = json_decode($x,true);
+else:
+	$j = array();
 endif;
 
 function print_nice_elm($a,$d=0) {
