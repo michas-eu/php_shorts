@@ -6,20 +6,19 @@ $x = @$_POST['json'];
 if ($x):
 	$j = json_decode($x,true);
 else:
-	$j = array();
+	$j = null;
 endif;
 
 function print_nice_elm($a,$d=0) {
-	is_array($a);
-	foreach ($a as $k=>$v):
-		echo str_repeat('--',$d), ' ', $k, ': ';
-		if (is_array($v)):
-			echo 'Array';
+	if (is_array($a)):
+		echo "Array\n";
+		foreach ($a as $k=>$v):
+			echo str_repeat('--',$d), ' ', $k, ': ';
 			print_nice_elm($v,$d+1);
-		else:
-			echo htmlspecialchars($v), "<br>\n";
-		endif;
-	endforeach;
+		endforeach;
+	else:
+		echo htmlspecialchars($a), "\n";
+	endif;
 }
 ?>
 
