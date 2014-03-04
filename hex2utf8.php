@@ -7,7 +7,7 @@ $x = @$_POST['hex'];
 $x = hexdec($x);
 
 $r = array();
-if ($x <= pow(2,7)):
+if ($x < pow(2,7)):
 	$r[0] = $x;
 elseif ($x < pow(2,12)):
 	$r[0] = 0xC0 | ($x >> 6);
