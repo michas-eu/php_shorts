@@ -10,7 +10,7 @@ $x = base64_decode($x);
 
 <?php if($x): ?>
 <pre>
-<?php echo htmlspecialchars($x); ?>
+<?php echo htmlspecialchars($x, ENT_QUOTES|ENT_HTML5, 'ISO-8859-1'); ?>
 </pre>
 <?php endif; ?>
 
